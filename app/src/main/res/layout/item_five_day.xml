@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="15dp"
+            android:padding="8dp"
+            app:cardBackgroundColor="@color/purple_500"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <TextView
+                    style="@style/textStyle"
+                    android:text="20/janvier"
+                    android:layout_gravity="center"
+                    android:id="@+id/date"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/humidity"
+                        android:id="@+id/imageWeather"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        style="@style/textStyle"
+                        android:text="Clear"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:id="@+id/state"
+                        android:padding="5dp"
+                        />
+                </LinearLayout>
+                <TextView
+                    style="@style/textStyle"
+                    android:text="22°"
+                    android:textSize="30sp"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/temp"
+                    android:padding="5dp"
+                    />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</layout>

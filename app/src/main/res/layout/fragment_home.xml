@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.test.metio.ui.main.homeFragment.FHomeViewModel"/>
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_700"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:fillViewport="true"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollIndicators="none"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/purple_700"
+                >
+
+                <include layout="@layout/weather_of_current_location"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginVertical="15dp"
+                    android:id="@+id/layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:id="@+id/seeMore"
+                    android:onClick="@{(v)->viewModel.onClick(v)}"
+                    app:layout_constraintTop_toBottomOf="@id/layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    >
+                    <TextView
+                        style="@style/textStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/see_all"
+                        android:id="@+id/seeAllTV"
+                        android:textSize="18sp"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/purple_500"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    app:layout_constraintTop_toBottomOf="@+id/seeMore"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_weather"
+                    tools:itemCount="4"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:id="@+id/recyclerView"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</layout>

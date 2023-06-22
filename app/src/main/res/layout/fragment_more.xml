@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.test.metio.ui.main.moreFragment.FMoreViewModel"/>
+    </data>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_700"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadeScrollbars="false"
+                android:fillViewport="true"
+                android:nestedScrollingEnabled="true"
+                android:overScrollMode="ifContentScrolls"
+                android:scrollIndicators="right"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbars="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:startIconDrawable="@drawable/ic_baseline_search_24"
+                        app:startIconTint="@color/white"
+                        app:boxStrokeWidth="0dp"
+                        android:id="@+id/layout"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:hintEnabled="false"
+                        android:layout_marginHorizontal="15dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical"
+                        >
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:imeOptions="actionDone"
+                            android:inputType="textFilter"
+                            android:layout_gravity="top"
+                            android:maxLines="2"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:hint="@string/search_for_city"
+                            android:paddingHorizontal="5dp"
+                            android:paddingVertical="2dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:id="@+id/searchEditText"
+                            android:onTextChanged="@{viewModel::onSearchTextChanged}"
+                            android:soundEffectsEnabled="true"
+                            app:onFocusChangeListener="@{viewModel.onEmailFocusChanged}"
+                            android:background="@drawable/edit_text_background"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        app:layout_constraintTop_toBottomOf="@+id/layout"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/item_weather"
+                        tools:itemCount="4"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:id="@+id/recyclerView"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="30dp"
+                android:onClick="@{(v)->viewModel.onClick(v)}"
+                android:src="@drawable/add_city"
+                android:id="@+id/floatingButton"
+                android:backgroundTint="@color/white"
+                />
+        </RelativeLayout>
+
+
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout >
+
+</layout>

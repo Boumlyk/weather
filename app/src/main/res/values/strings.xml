@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Metio</string>
+    <string name="text_text">text text</string>
+    <string name="see_all">See all</string>
+    <string name="search_for_city">Search for city</string>
+    <string name="search">Search</string>
+    <string name="no">No</string>
+    <string name="add_city">Add city</string>
+    <string name="current_weather">Current Weather</string>
+    <string name="humidity">Humidity:  %d%% </string>
+    <string name="wind">Wind:  %.0f km/hr</string>
+    <string name="pressure">Pressure\n  %.0f Pa</string>
+    <string name="do_you_want_to_delete_this_city_from_the_list">Do you want to delete this city from the list ?</string>
+    <string name="yes">Yes</string>
+</resources>
